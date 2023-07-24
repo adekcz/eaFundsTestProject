@@ -23,19 +23,7 @@ function App() {
 
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          {loadedData[0]['Payout amount']}
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <div>
+    <div>
       {fundNames.map((fund, index) => (
         <div key={index}>
           <button to="/summary" onClick={() => handleFundClick(fund)}>

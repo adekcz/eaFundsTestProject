@@ -24,7 +24,17 @@ function App() {
     setSelectedFundName(fundName);
   };
 
+  const [searchTerm, setSearchTerm] = useState("");
 
+  function handleSearchChange(value) {
+  const filteredData = selectedFundData.filter(item =>
+    
+      String(item.Summary + item['Last name'] + item.filter).toLowerCase().includes(value.toLowerCase())
+    
+  );
+  setSelectedFundData(filteredData)
+    }
+  
 
   return (
 
@@ -40,6 +50,11 @@ function App() {
       ))}
       
       <Summary label={selectedFundName} rows={selectedFundData} />
+      <input
+        type="text"
+        placeholder="Search"
+        onChange={event => handleSearchChange(event.target.value)}
+      />
       <ResultsTable rows={selectedFundData} />
     </div>
 

@@ -3,6 +3,8 @@ import './App.css';
 import {data} from './data/data.js';
 import {Summary} from './components/Summary'
 import { useState, useReducer } from "react";
+import { ResultsTable } from './components/ResultsTable';
+
 
 
 function App() {
@@ -10,14 +12,19 @@ function App() {
     // Get all unique fund names
   let fundNames = [...new Set(loadedData.map(item => item.Fund))];
 
-  const [selectedFundData, setSelectedFundData] = useState([]);
-  const [selectedFundName, setSelectedFundName] = useState(["none"]);
+
+  const filteredDataDefault = data.filter(item => item.Fund === fundNames[0]);
+
+  const [selectedFundData, setSelectedFundData] = useState(filteredDataDefault);
+  const [selectedFundName, setSelectedFundName] = useState(fundNames[0]);
 
   const handleFundClick = (fundName) => {
     const filteredData = data.filter(item => item.Fund === fundName);
     setSelectedFundData(filteredData);
     setSelectedFundName(fundName);
   };
+
+
 
   return (
 
@@ -33,6 +40,7 @@ function App() {
       ))}
       
       <Summary label={selectedFundName} rows={selectedFundData} />
+      <ResultsTable rows={selectedFundData} />
     </div>
 
       </header>

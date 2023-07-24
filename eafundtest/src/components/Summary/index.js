@@ -56,10 +56,10 @@ function Summary({label, rows}) {
         <h2> {label}</h2>
         <div>
           <p>Total number of grants in fund: {amountOfGrants}</p>
-          <p>Total payout amount in fund {totalPayout}</p>
-          <p>The median rating: {median}</p>
+          <p>Total payout amount in fund {totalPayout.toFixed(2)}</p>
+          <p>The median rating: {median.toFixed(2)}</p>
           <p>Number of grants that have a positive rating: {positiveRatings}</p>
-          <p>Sum of payout amount of grants that have a positive rating: {payoutPositiveRatings}</p>
+          <p>Sum of payout amount of grants that have a positive rating: {payoutPositiveRatings.toFixed(2)}</p>
         </div>
       </div>
     );

@@ -3,8 +3,8 @@ function ResultsTable({rows}) {
     return (
       <tr>
         <td>{row.ID}</td>
-        <td>{row["First Name"]}</td>
-        <td>{row["Last Name"]}</td>
+        <td>{row["First name"]}</td>
+        <td>{row["Last name"]}</td>
         <td>{row["Summary"]}</td>
         <td>{row["Submission date"]}</td>
         <td>{row["Payout amount"]}</td>
@@ -18,6 +18,7 @@ function ResultsTable({rows}) {
       <table>
         <thead>
           <tr>
+            <th>ID</th>
             <th>First name</th>
             <th>Last name</th>
             <th>Summary</th>

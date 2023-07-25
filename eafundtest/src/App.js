@@ -18,8 +18,11 @@ function App() {
   const [selectedFundData, setSelectedFundData] = useState(filteredDataDefault);
   const [selectedFundName, setSelectedFundName] = useState(fundNames[0]);
 
+  function filterData(data, fundName) {
+    return data.filter(item => item.Fund === fundName);
+  }
   const handleFundClick = (fundName) => {
-    const filteredData = data.filter(item => item.Fund === fundName);
+    const filteredData = filterData(data, fundName)
     setSelectedFundData(filteredData);
     setSelectedFundName(fundName);
   };
@@ -27,13 +30,14 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
   function handleSearchChange(value) {
-  const filteredData = selectedFundData.filter(item =>
-    
+    const filteredData = filterData(data, selectedFundName)
+  const searchedData = filteredData.filter(item =>
+      
       String(item.Summary + item['Last name'] + item.filter).toLowerCase().includes(value.toLowerCase())
     
   );
-  setSelectedFundData(filteredData)
-    }
+  setSelectedFundData(searchedData)
+  }
   
 
   return (
